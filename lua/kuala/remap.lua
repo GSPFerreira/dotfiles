@@ -3,7 +3,8 @@ vim.g.mapleader = " "
 vim.api.nvim_set_keymap("n", ";", "n", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>o", "<C-w>")
-vim.keymap.set("n", "|", "<cmd>Neotree reveal<cr>")
+vim.keymap.set("n", "|", "<cmd>Neotree toggle<cr>")
+vim.keymap.set("n", "<leader>|", "<cmd>Neotree toggle<cr>")
 vim.keymap.set("n", "<leader>bb", "<cmd>Neotree toggle show buffers right<cr>")
 vim.keymap.set("n", "<leader>bg", "<cmd>Neotree float git_status<cr>")
 
