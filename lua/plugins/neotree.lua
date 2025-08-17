@@ -39,6 +39,39 @@ return {
 				end,
 			},
 		},
+
+		keys = {
+			-- {
+			-- 	"<leader>fe",
+			-- 	function()
+			-- 		require("neo-tree.command").execute({ toggle = true, dir = LazyVim.root() })
+			-- 	end,
+			-- 	desc = "Explorer NeoTree (Root Dir)",
+			-- },
+			{
+				"<leader>fE",
+				function()
+					require("neo-tree.command").execute({ toggle = true, dir = vim.uv.cwd() })
+				end,
+				desc = "Explorer NeoTree (cwd)",
+			},
+			{ "<leader>e", "<leader>fe", desc = "Explorer NeoTree (Root Dir)", remap = true },
+			{ "<leader>E", "<leader>fE", desc = "Explorer NeoTree (cwd)", remap = true },
+			{
+				"<leader>ge",
+				function()
+					require("neo-tree.command").execute({ source = "git_status", toggle = true })
+				end,
+				desc = "Git Explorer",
+			},
+			{
+				"<leader>be",
+				function()
+					require("neo-tree.command").execute({ source = "buffers", toggle = true })
+				end,
+				desc = "Buffer Explorer",
+			},
+		},
 		config = function()
 			-- If you want icons for diagnostic errors, you'll need to define them somewhere:
 			vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
@@ -112,7 +145,7 @@ return {
 					git_status = {
 						symbols = {
 							-- Change type
-							added = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
+							added = "✚", -- or "✚", but this is redundant info if you use git_status_colors on the name
 							modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
 							deleted = "✖", -- this can only be used in the git_status source
 							renamed = "󰁕", -- this can only be used in the git_status source
@@ -227,6 +260,7 @@ return {
 				},
 				nesting_rules = {},
 				filesystem = {
+					commands = {},
 					filtered_items = {
 						visible = false, -- when true, they will just be displayed differently than normal items
 						hide_dotfiles = true,
@@ -291,6 +325,7 @@ return {
 							["on"] = { "order_by_name", nowait = false },
 							["os"] = { "order_by_size", nowait = false },
 							["ot"] = { "order_by_type", nowait = false },
+							-- ["oa"] = "avante_add_files",
 							-- ['<key>'] = function(state) ... end,
 						},
 						fuzzy_finder_mappings = { -- define keymaps for filter popup window in fuzzy_finder_mode
@@ -303,7 +338,31 @@ return {
 						},
 					},
 
-					commands = {}, -- Add a custom command or override a global one using the same function name
+					commands = {
+						-- TODO review avante vs copilot chat usage
+						--
+						-- avante_add_files = function(state)
+						-- 	local node = state.tree:get_node()
+						-- 	local filepath = node:get_id()
+						-- 	local relative_path = require("avante.utils").relative_path(filepath)
+						--
+						-- 	local sidebar = require("avante").get()
+						--
+						-- 	local open = sidebar:is_open()
+						-- 	-- ensure avante sidebar is open
+						-- 	if not open then
+						-- 		require("avante.api").ask()
+						-- 		sidebar = require("avante").get()
+						-- 	end
+						--
+						-- 	sidebar.file_selector:add_selected_file(relative_path)
+						--
+						-- 	-- remove neo tree buffer
+						-- 	if not open then
+						-- 		sidebar.file_selector:remove_selected_file("neo-tree filesystem [1]")
+						-- 	end
+						-- end,
+					}, -- Add a custom command or override a global one using the same function name
 				},
 				buffers = {
 					follow_current_file = {
