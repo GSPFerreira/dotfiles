@@ -52,11 +52,11 @@ return {
 
 					-- Rename the variable under your cursor.
 					--  Most Language Servers support renaming across files, etc.
-					map("grn", vim.lsp.buf.rename, "[R]e[n]ame")
+					map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
 
 					-- Execute a code action, usually your cursor needs to be on top of an error
 					-- or a suggestion from your LSP for this to activate.
-					map("gra", vim.lsp.buf.code_action, "[G]oto Code [A]ction", { "n", "x" })
+					map("<leader>ra", vim.lsp.buf.code_action, "[G]oto Code [A]ction", { "n", "x" })
 
 					-- Find references for the word under your cursor.
 					map("grr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
@@ -199,7 +199,7 @@ return {
 				-- clangd = {},
 				-- gopls = {},
 				-- pyright = {},
-				-- rust_analyzer = {},
+				rust_analyzer = {},
 				-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
 				--
 				-- Some languages (like typescript) have entire language plugins that can be useful:
@@ -210,18 +210,25 @@ return {
 				--
 
 				lua_ls = {
+					settings = {
+						Lua = {
+                            diagnostics = {
+                                globals = { "vim" },
+                            },
+                        },
+					},
 					-- cmd = { ... },
 					-- filetypes = { ... },
 					-- capabilities = {},
-					settings = {
-						Lua = {
-							completion = {
-								callSnippet = "Replace",
-							},
-							-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-							-- diagnostics = { disable = { 'missing-fields' } },
-						},
-					},
+					-- settings = {
+					-- 	Lua = {
+					-- 		completion = {
+					-- 			callSnippet = "Replace",
+					-- 		},
+					-- 		-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
+					-- 		-- diagnostics = { disable = { 'missing-fields' } },
+					-- 	},
+					-- },
 				},
 
 				zls = {

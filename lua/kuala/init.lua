@@ -4,9 +4,6 @@ require("kuala.set")
 --- require("config.kclconfig")
 local augroup = vim.api.nvim_create_augroup
 local kuala = augroup("kuala", {})
-local augroup = vim.api.nvim_create_augroup
-
-
 local autocmd = vim.api.nvim_create_autocmd
 local yank_group = augroup("HighlightYank", {})
 
@@ -35,25 +32,6 @@ autocmd({ "BufWritePre" }, {
 	group = kuala,
 	pattern = "*",
 	command = [[%s/\s\+$//e]],
-})
-
-autocmd({ "FileType" }, {
-	pattern = "markdown",
-	callback = function()
-		vim.opt_local.conceallevel = 2
-		vim.opt_local.concealcursor = "nc"
-	end,
-})
-
-autocmd("BufRead", {
-	pattern = "*.md",
-	callback = function()
-		local path = vim.fn.expand("%:p")
-		local vault_path = vim.fn.expand("~/Documents/Obsidian Vault")
-		if vim.startswith(path, vault_path) then
-			require("render-markdown").buf_disable()
-		end
-	end,
 })
 
 vim.g.netrw_browse_split = 0

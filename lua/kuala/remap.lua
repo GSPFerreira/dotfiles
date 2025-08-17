@@ -1,6 +1,5 @@
 vim.g.mapleader = " "
 
-vim.api.nvim_set_keymap("n", ";", "n", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>o", "<C-w>")
 vim.keymap.set("n", "|", "<cmd>Neotree toggle<cr>")
@@ -8,21 +7,12 @@ vim.keymap.set("n", "<leader>|", "<cmd>Neotree toggle<cr>")
 vim.keymap.set("n", "<leader>bb", "<cmd>Neotree toggle show buffers right<cr>")
 vim.keymap.set("n", "<leader>bg", "<cmd>Neotree float git_status<cr>")
 
-vim.keymap.set("n", "<leader>oj", "<C-w>j")
-vim.keymap.set("n", "<leader>ok", "<C-w>k")
-vim.keymap.set("n", "<leader>on", "<C-w>n")
-vim.keymap.set("n", "<leader>oe", "<C-w>e")
 vim.keymap.set("n", "=", [[<cmd>vertical resize +5<cr>]]) -- make the window biger vertically
 vim.keymap.set("n", "+", [[<cmd>vertical resize -5<cr>]]) -- make the window smaller vertically
 vim.keymap.set("n", "-", [[<cmd>horizontal resize +2<cr>]]) -- make the window bigger horizontally by pressing shift and =
 vim.keymap.set("n", "_", [[<cmd>horizontal resize -2<cr>]]) -- make the window smaller horizontally by pressing shift and -
 vim.keymap.set("n", "<leader>sr", ":%s/g<Left>", { desc = "Search and replace" })
 
--- vim.keymap.set({ "n", "v", "o" }, "n", "j")
--- vim.keymap.set({ "n", "v", "o" }, "j", "e")
--- vim.keymap.set({ "n", "v", "o" }, "e", "k")
--- vim.keymap.set({ "n", "v", "o" }, "N", "J")
--- vim.keymap.set({ "n", "v", "o" }, "E", "K")
 vim.keymap.set("n", "<leader>w", "<cmd>wa<cr>")
 
 vim.keymap.set("n", "J", "mzJ`z")
@@ -52,7 +42,6 @@ vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>cp", function()
 	vim.fn.setreg("+", vim.fn.expand("%:p"))
 end, { desc = "Copy file path to clipboard" })
