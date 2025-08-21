@@ -31,6 +31,7 @@ return {
 					go = { "gci", "goimports", "gofumpt" },
 					yaml = { "prettierd", "prettier", stop_after_first = true },
 					json = { "deno_fmt" },
+					xml = { "xmlformatter" },
 				},
 			})
 		end,
