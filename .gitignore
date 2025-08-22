@@ -1,0 +1,26 @@
+.DS_Store
+.mono
+Microsoft\\VisualStudio Services
+NuGet
+configstore
+gcloud
+gh
+git
+github-copilot
+gtk-2.0
+iterm2
+karabiner
+kitty
+neofetch
+powershell
+raycast
+tmuxai
+waveterm
+wireshark
+xbuild
+yarn
+zed/.*
+zed/prompts/*
+zed/themes/*
+zed/conversations/*
+zed/embeddings/*
