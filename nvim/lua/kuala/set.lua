@@ -3,6 +3,9 @@ vim.api.nvim_create_autocmd("BufLeave", {
 	command = "silent! update",
 })
 
+-- Set have_nerd_font to true to enable nerd font icons
+vim.g.have_nerd_font = true
+
 vim.opt.guicursor = ""
 
 vim.opt.nu = true
