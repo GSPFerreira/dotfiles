@@ -17,6 +17,16 @@ return {
 			yaml = { "yamllint" },
 		}
 
+		-- Configure yamllint to use the config file
+		local yamllint = require("lint.linters.yamllint")
+		yamllint.args = {
+			"-c",
+			vim.fn.expand("~/.yamllint"),
+			"-f",
+			"parsable",
+			"-",
+		}
+
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 		local golangcilint = require("lint.linters.golangcilint")
 		golangcilint.append_fname = true

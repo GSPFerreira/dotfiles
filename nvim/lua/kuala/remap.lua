@@ -55,6 +55,10 @@ vim.keymap.set("n", "<leader>td", function()
 	vim.diagnostic.enable(not vim.diagnostic.is_enabled())
 end)
 
+vim.keymap.set("n", "<leader>\\", function()
+	require("oil").toggle_float()
+end, { desc = "Toggle Oil float" })
+
 -- -- codecompanion keybinds
 -- vim.keymap.set({ "n", "v" }, "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
 -- vim.keymap.set({ "n", "v" }, "<leader>aa", "<cmd>CodeCompanionChat Toggle right<cr>", { noremap = true, silent = true })

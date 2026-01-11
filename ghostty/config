@@ -1,0 +1,145 @@
+# Ghostty Terminal Configuration
+# Ported from Kitty configuration for consistency
+
+# ==============================================================================
+# Font Configuration
+# ==============================================================================
+font-family = "FiraCode Nerd Font Mono"
+font-size = 16
+font-feature = +zero
+font-feature = +onum
+
+# ==============================================================================
+# Theme & Colors (Gruvbox Dark)
+# ==============================================================================
+# Note: Using custom colors instead of theme to match Kitty exactly
+background = 282828
+foreground = ebdbb2
+
+# Cursor
+cursor-color = 928374
+cursor-style = block
+cursor-style-blink = false
+
+# Selection
+selection-foreground = 928374
+selection-background = 3c3836
+
+# Normal colors (0-7)
+palette = 0=#282828
+palette = 1=#cc241d
+palette = 2=#98971a
+palette = 3=#d79921
+palette = 4=#458588
+palette = 5=#b16286
+palette = 6=#689d6a
+palette = 7=#a89984
+
+# Bright colors (8-15)
+palette = 8=#928374
+palette = 9=#fb4934
+palette = 10=#b8bb26
+palette = 11=#fabd2d
+palette = 12=#83a598
+palette = 13=#d3869b
+palette = 14=#8ec07c
+palette = 15=#928374
+
+# ==============================================================================
+# Window Appearance & Behavior
+# ==============================================================================
+# Window decoration and styling
+window-decoration = true
+window-theme = auto
+macos-window-buttons = hidden
+macos-titlebar-style = tabs
+
+# Window padding (matches Kitty's window_padding_width 10)
+window-padding-x = 10
+window-padding-y = 10
+
+# Transparency and blur (matches Kitty's background_opacity 0.90 and background_blur 32)
+background-opacity = 0.90
+background-blur = 32
+
+# macOS-specific window behavior
+macos-option-as-alt = true
+quit-after-last-window-closed = true
+
+# ==============================================================================
+# Shell Integration
+# ==============================================================================
+command = /opt/homebrew/bin/fish
+shell-integration = fish
+shell-integration-features = cursor,sudo,title
+
+# ==============================================================================
+# Clipboard & Mouse
+# ==============================================================================
+clipboard-read = allow
+clipboard-write = allow
+copy-on-select = false
+mouse-hide-while-typing = true
+
+# ==============================================================================
+# Keybindings
+# ==============================================================================
+# Font size adjustments (kitty_mod = cmd+ctrl)
+keybind = cmd+ctrl+equal=increase_font_size:2
+keybind = cmd+ctrl+minus=decrease_font_size:2
+keybind = cmd+ctrl+backspace=reset_font_size
+
+# Window/Split management (match Kitty's maps)
+keybind = cmd+d=new_split:right
+keybind = cmd+shift+d=new_split:down
+keybind = cmd+w=close_surface
+
+# Split navigation (match Kitty's neighboring_window.py)
+keybind = cmd+ctrl+h=goto_split:left
+keybind = cmd+ctrl+j=goto_split:bottom
+keybind = cmd+ctrl+k=goto_split:top
+keybind = cmd+ctrl+l=goto_split:right
+
+# Tab management
+gtk-tabs-location = top
+window-inherit-working-directory = true
+window-new-tab-position = current
+keybind = cmd+t=new_tab
+keybind = cmd+shift+left_bracket=previous_tab
+keybind = cmd+shift+right_bracket=next_tab
+keybind = cmd+one=goto_tab:1
+keybind = cmd+two=goto_tab:2
+keybind = cmd+three=goto_tab:3
+keybind = cmd+four=goto_tab:4
+keybind = cmd+five=goto_tab:5
+keybind = cmd+six=goto_tab:6
+keybind = cmd+seven=goto_tab:7
+keybind = cmd+eight=goto_tab:8
+keybind = cmd+nine=goto_tab:9
+
+# Word navigation (match Kitty's alt+left/right)
+keybind = alt+left=text:\x1b\x62
+keybind = alt+right=text:\x1b\x66
+
+# Atuin history search (Cmd+R sends Ctrl+R)
+keybind = cmd+r=text:\x12
+
+# Config reload
+keybind = cmd+shift+comma=reload_config
+
+# ==============================================================================
+# Terminal Behavior
+# ==============================================================================
+confirm-close-surface = false
+window-save-state = always
+
+# ==============================================================================
+# Advanced Settings
+# ==============================================================================
+# Match Kitty's display settings
+window-colorspace = display-p3
+
+# Adjust rendering for better appearance (0 = no adjustment)
+adjust-cell-height = 0
+adjust-cell-width = 0
+keybind = shift+enter=text:\x1b\r

@@ -97,6 +97,12 @@ outer.bottom =     6
 outer.top =        6
 outer.right =      6
 
+# Window-specific rules
+[[on-window-detected]]
+if.app-id="com.mitchellh.ghostty"
+run= [
+  "layout floating",
+]
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 # 'main' binding mode must be always presented

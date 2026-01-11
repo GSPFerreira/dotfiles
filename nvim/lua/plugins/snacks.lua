@@ -9,5 +9,8 @@ return {
 				end
 			end,
 		},
+		input = {},
+		picker = {},
+		terminal = {},
 	},
 }

@@ -12,6 +12,7 @@ iterm2
 karabiner
 kitty
 neofetch
+omf
 powershell
 raycast
 tmuxai
@@ -24,3 +25,4 @@ zed/prompts/*
 zed/themes/*
 zed/conversations/*
 zed/embeddings/*
+opencode/antigravity-accounts.json
